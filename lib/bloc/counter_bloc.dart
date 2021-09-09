@@ -4,15 +4,18 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'counter_event.dart';
-part 'counter_state.dart';
 
-class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  CounterBloc() : super(CounterInitial());
+class CounterBloc extends Bloc<CounterEvent, int> {
+  CounterBloc() : super(0);
 
   @override
-  Stream<CounterState> mapEventToState(
-    CounterEvent event,
-  ) async* {
-    // TODO: implement mapEventToState
+  Stream<int> mapEventToState(CounterEvent event) async* {
+    switch (event) {
+      case CounterEvent.increment:
+        yield state + 1;
+        break;
+      default:
+        break;
+    }
   }
 }
