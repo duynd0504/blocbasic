@@ -1,3 +1,3 @@
 part of 'counter_bloc.dart';
 
-enum CounterEvent { increment }
+enum CounterEvent { increment, decrement }

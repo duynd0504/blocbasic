@@ -38,7 +38,30 @@ class _MyHomePageState extends State<MyHomePage> {
                       .copyWith(color: Colors.amber),
                 );
               },
-            )
+            ),
+            InkWell(
+              onTap: () {
+                _counterBloc.add(CounterEvent.decrement);
+              },
+              child: Container(
+                height: 60,
+                width: 160,
+                child: Center(
+                    child: Text(
+                  'Decrement',
+                  style: TextStyle(fontSize: 24, color: Colors.black),
+                )),
+                decoration: BoxDecoration(
+                    color: Colors.amberAccent,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(2, 4),
+                          blurRadius: 6,
+                          color: Colors.black38)
+                    ]),
+              ),
+            ),
           ],
         ),
       ),
@@ -48,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
